@@ -1,0 +1,281 @@
+
+
+<html>
+    <head>
+        <title>SHIDDARTH BISTA</title>
+        <meta charset="UTF-8">
+        
+        
+    
+    </head>
+
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family:Verdana, Geneva, Tahoma, sans-serif;
+        }
+
+        body{
+            background-color:#292c34;
+        }
+        
+        header{
+            background:white;
+            padding:20px;
+        }
+
+        header > h1{
+            color:#292c34;
+            text-align: center;
+            /*change font alter*/
+            font-family: Verdana, "Geneva", Tahoma, sans-serif;
+        }
+
+        .score-board {
+            margin:20px auto;
+            border: 3px solid white;
+            border-radius:4px;
+            text-align:center;
+            width:200px;
+            color: white;
+            font-size: 46px;
+            padding :15px 20px;
+            font-family:Verdana, "Geneva", Tahoma, sans-serif;
+            position:relative;
+         }
+
+         .badge {
+             background-color:#E2584d;
+             color:white;
+             font-size: 14px;
+             padding :2px 10px;
+             font-family:Verdana, Geneva, Tahoma, sans-serif;
+
+         }
+
+         #user-label {
+             position: absolute;
+             top:30px;
+             left:-25px;
+         }
+
+         #computer-label {
+             position: absolute;
+             top:30px;
+             right:-30px;
+         }
+
+         .result {
+             font-size:40px;
+             color:white;
+             text-align:center;
+         }
+
+         .result >p{
+             text-align: center;
+
+         }
+
+         .choices {
+             margin-top:50px 0;
+             text-align: center;
+         }
+
+         .choice {
+             display: inline-block;
+             border: 4px solid white;
+             border-radius : 50%;
+             padding: 20px;
+             margin: 0 20px;
+             transition:all  0.3s ease;
+         }
+
+         .choice:hover {
+             cursor: pointer;
+             background: red;
+         }
+
+         #action-message{
+             text-align:center;
+             color:white;
+             font-weight:bold;
+             font-size:20px;
+             margin-top :20px;
+         }
+
+         .green-glow {
+         border: 4px solid #4dcc7d;
+         box-shadow: 0 0 10px #31b43a;
+        }
+
+        .red-glow {
+            border : 4px solid #fc121b;
+            box-shadow: 0 0 10px #d01115;
+        }
+
+        .yellow-glow {
+            border : 4px solid #cecb13;
+            box-shadow: 0 0 10px #e5ff00;
+        }
+
+/* The Modal (background) */
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  padding-top: 100px; /* Location of the box */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+/* Modal Content */
+.modal-content {
+  position: relative;
+  background-color: #fefefe;
+  margin: auto;
+  padding: 0;
+  border: 1px solid #888;
+  width: 80%;
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
+  -webkit-animation-name: animatetop;
+  -webkit-animation-duration: 0.4s;
+  animation-name: animatetop;
+  animation-duration: 0.4s
+}
+
+/* Add Animation */
+@-webkit-keyframes animatetop {
+  from {top:-300px; opacity:0} 
+  to {top:0; opacity:1}
+}
+
+@keyframes animatetop {
+  from {top:-300px; opacity:0}
+  to {top:0; opacity:1}
+}
+
+/* The Close Button */
+.close {
+  color: white;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: #000;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.modal-header {
+  padding: 2px 16px;
+  background-color: #5cb85c;
+  color: white;
+}
+
+.modal-body {padding: 2px 16px;}
+
+    </style>
+
+    <body>
+       <header>
+            <h1>Rock Paper Scissor Lizard Spock</h1>
+       </header>
+
+       <div class="score-board">
+           <div id="user-label" class ="badge">YOU</div>
+           <div id="computer-label" class ="badge">CPU</div>
+           <span id="user-score">0</span>:<span id="computer-score">0</span>
+       </div>
+
+       <div class="result">
+           <p>Hail Sam Kass !</p>
+           <p></p>
+           <p></p>
+       </div>
+
+       <!----Images for choices-->
+       <div class="choices">
+           <div class="choice" id="r">
+               <img src="rock.png" alt="rock">
+           </div>
+           <div class="choice" id="p">
+            <img src="paper.png" alt="paper">
+           </div>
+        <div class="choice" id="s">
+            <img src="scissors.png" alt="scissors">
+         </div>
+        <div class="choice" id="l">
+            <img src="lizard.png" alt="lizard">
+         </div>
+        <div class="choice" id="z">
+            <img src="spock.png" alt="spock">
+        </div>
+       </div>   
+
+       <p id="action-message">Make your move</p>
+
+       <!-- Modal content -->
+<!-- Trigger/Open The Modal -->
+
+<button id="myBtn" hover="color:red;" style="
+margin :100px 30px;
+background-color: #4CAF50; /* Green */
+border:none;
+color: rgb(20, 3, 3);
+padding: 10px 24px;
+text-align: center;
+text-decoration: none;
+border-radius: 12px;
+display: inline-block;
+font-size: 16px;";>Rules</button>
+</div>
+
+
+<!-- The Modal -->
+<div id="myModal" class="modal">
+
+  <!-- Modal content -->
+  <div class="modal-content">
+    <div class="modal-header">
+      <span class="close">&times;</span>
+      <h2>Rules</h2>
+    </div>
+    <div class="modal-body">
+      <p>Scissors cuts Paper</p>
+      <p>Paper Covers Rock</p>
+      <p>Rock smashes Lizard</p>
+      <p>Lizard poisons Spock</p>
+      <p>Spock smashes Scissors</p>
+      <p>Scissors decapitates Lizard</p>
+      <p>Lizard eats Paper</p>
+      <p>Paper disproves Spock</p>
+      <p>Spock vaporizes Rock</p>
+      <p>(and as it always has)</p>
+      <p>Rock crushes Scissors</p>
+
+    </div>
+  
+  </div>
+
+</div>
+
+      
+       <script type="text/javascript"  src="app.js" charset="utf-8"></script>
+
+    </body>
+
+   
+
+   
+
+</html>
