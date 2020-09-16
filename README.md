@@ -3,8 +3,8 @@ inspired from the popular game from the show "The Big Bang Theory"
 
 
 The rules are simple: 
-Scissors cuts Paper
-Paper Covers Rock
+<p>Scissors cuts Paper
+<p>Paper Covers Rock
 Rock smashes Lizard
 Lizard poisons Spock
 Spock smashes Scissors
